@@ -1,0 +1,131 @@
+.header {
+  width: 100%;
+
+  padding: 10px 10px;
+  box-sizing: border-box;
+
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 1fr;
+
+  @media (max-width: 992px) {
+    grid-template-columns: 10% 90%;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    width: 60px;
+    height: 60px;
+    grid-column: 1;
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+
+    border: 1px solid #a4afba;
+    background-color: transparent;
+    box-shadow: none;
+    color: #838a92;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    touch-action: manipulation;
+    border-radius: 3px;
+
+    padding: 0 13px;
+    min-height: 32px;
+    border-radius: 3px;
+    font-size: 13px;
+
+    &:hover {
+      border-color: #65a3be;
+      background-color: transparent;
+      color: #4e879c;
+      text-decoration: none;
+    }
+
+    &_logout {
+      &-icon {
+        margin-left: 10px;
+      }
+    }
+
+    &_back {
+      &-icon {
+        margin-right: 10px;
+      }
+    }
+  }
+
+  &__public-back {
+    @media (max-width: 992px) {
+      margin: 0 10px;
+    }
+  }
+
+  &__search {
+    width: 50%;
+    grid-column: 2/3;
+    grid-row: 1;
+
+    @media (max-width: 992px) {
+      width: 80%;
+      margin: 0 10px;
+    }
+  }
+
+  &__logout {
+    grid-column: 2/3;
+    grid-row: 1;
+
+    display: flex;
+  }
+
+  &__menu-btn {
+    display: none;
+    font-size: 32px !important;
+    margin-left: 15px;
+
+    @media (max-width: 992px) {
+      display: block;
+    }
+
+    &:after {
+      content: "close";
+    }
+  }
+}
+
+#humburger {
+  opacity: 0;
+  visibility: hidden;
+
+  &:checked {
+    & + .humburger__label {
+      &::after {
+        content: "close";
+      }
+    }
+  }
+}
+
+.humburger__label {
+  font-size: 40px !important;
+  display: none;
+
+  @media (max-width: 992px) {
+    display: block;
+  }
+
+  &::after {
+    content: "menu";
+  }
+}
